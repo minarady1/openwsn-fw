@@ -44,7 +44,7 @@
                 </option>
                 <option>
                     <name>MemFile</name>
-                    <state></state>
+                    <state>$TOOLKIT_DIR$\CONFIG\debugger\TexasInstruments\CC2538SF53.ddf</state>
                 </option>
                 <option>
                     <name>RunToEnable</name>
@@ -52,7 +52,7 @@
                 </option>
                 <option>
                     <name>RunToName</name>
-                    <state>main</state>
+                    <state>spi_init</state>
                 </option>
                 <option>
                     <name>CExtraOptionsCheck</name>
@@ -112,7 +112,7 @@
                 </option>
                 <option>
                     <name>FlashLoadersV3</name>
-                    <state>$TOOLKIT_DIR$\config\flashloader\</state>
+                    <state>$TOOLKIT_DIR$\config\flashloader\TexasInstruments\FlashCC2538RAM32K.board</state>
                 </option>
                 <option>
                     <name>OCImagesSuppressCheck1</name>
@@ -896,7 +896,7 @@
                 </option>
                 <option>
                     <name>CCCpuClockEdit</name>
-                    <state></state>
+                    <state>32.0</state>
                 </option>
                 <option>
                     <name>CCSwoClockAuto</name>
