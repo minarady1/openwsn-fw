@@ -23,6 +23,7 @@
 #include "i2c.h"
 #include "leds.h"
 #include "radio.h"
+#include "spi.h"
 #include "sensors.h"
 #include "sctimer.h"
 #include "uart.h"
@@ -81,6 +82,7 @@ void board_init(void) {
    button_init();
    sctimer_init();
    uart_init();
+   spi_init();
    radio_init();
    i2c_init();
    sensors_init();
