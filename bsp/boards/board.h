@@ -23,7 +23,36 @@ typedef enum {
    KICK_SCHEDULER        = 1,
 } kick_scheduler_t;
 
+#ifndef SLOTDURATION_20MS_24GHZ
+#define SLOTDURATION_20MS_24GHZ             20   /* in miliseconds */
+#endif
+#ifndef PORT_maxTxDataPrepare_20MS_24GHZ
+#define PORT_maxTxDataPrepare_20MS_24GHZ   110   /* 3355us (not measured) */
+#endif
+#ifndef PORT_maxRxAckPrepare_20MS_24GHZ
+#define PORT_maxRxAckPrepare_20MS_24GHZ    20    /*  610us (not measured) */
+#endif
+#ifndef PORT_maxRxDataPrepare_20MS_24GHZ
+#define PORT_maxRxDataPrepare_20MS_24GHZ   33    /* 1000us (not measured) */
+#endif
+#ifndef PORT_maxTxAckPrepare_20MS_24GHZ
+#define PORT_maxTxAckPrepare_20MS_24GHZ    50    /* 1525us (not measured) */
+#endif
+#ifndef PORT_delayTx_20MS_24GHZ
+#define PORT_delayTx_20MS_24GHZ            10   /*  549us (not measured) */
+#endif
+#ifndef PORT_delayRx_20MS_24GHZ
+#define PORT_delayRx_20MS_24GHZ            0    /*    0us (can not measure) */
+#endif
 
+#define SLOT_20MS_24GHZ_BOARD_VARS_DEFAULT  {  .slotDuration = SLOTDURATION_20MS_24GHZ, \
+                                           .maxTxDataPrepare = PORT_maxTxDataPrepare_20MS_24GHZ, \
+                                           .maxRxAckPrepare = PORT_maxRxAckPrepare_20MS_24GHZ, \
+                                           .maxRxAckPrepare = PORT_maxRxDataPrepare_20MS_24GHZ, \
+                                           .maxTxAckPrepare = PORT_maxTxAckPrepare_20MS_24GHZ, \
+                                           .delayTx = PORT_delayTx_20MS_24GHZ, \
+                                           .delayRx = PORT_delayRx_20MS_24GHZ, \
+                                           }
 
 //=========================== typedef =========================================
 typedef struct {
@@ -53,6 +82,15 @@ typedef enum{
 } slotType_t;
 
 //=========================== variables =======================================
+
+static const slot_board_vars_t slot_20ms_board_vars[] =
+{
+#ifdef SLOT_20MS_24GHZ_BOARD_VARS
+    SLOT_20MS_24GHZ_BOARD_VARS,
+#else
+    SLOT_20MS_24GHZ_BOARD_VARS_DEFAULT,
+#endif
+};
 
 //=========================== prototypes ======================================
 

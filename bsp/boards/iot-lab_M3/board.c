@@ -104,15 +104,9 @@ void board_init(void)
 
 //==== bootstrapping slot info lookup table
 void board_init_slot_vars(void){
-    
-    // 20ms slot
-    slot_board_vars [SLOT_20ms_24GHZ].slotDuration                   =  655   ; // ms  
-    slot_board_vars [SLOT_20ms_24GHZ].maxTxDataPrepare               =  110  ; //  3355us (not measured)
-    slot_board_vars [SLOT_20ms_24GHZ].maxRxAckPrepare                =  20   ; //   610us (not measured)
-    slot_board_vars [SLOT_20ms_24GHZ].maxRxDataPrepare               =  33   ; //  1000us (not measured)
-    slot_board_vars [SLOT_20ms_24GHZ].maxTxAckPrepare                =  50   ; //  1525us (not measured)
-    slot_board_vars [SLOT_20ms_24GHZ].delayTx                        =  18   ; //   549us (not measured)
-    slot_board_vars [SLOT_20ms_24GHZ].delayRx                        =  0    ; //     0us (can not measure)
+#ifdef SLOTDURATION_20MS_24GHZ
+    slot_board_vars [SLOT_20ms_24GHZ] = *slot_20ms_board_vars;
+#endif
 }
 
 // To get the current slotDuration at any time
